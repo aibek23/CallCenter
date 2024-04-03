@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2c0f97ae.chunk.css",
+    "main.js": "./static/js/main.be5e9d16.chunk.js",
+    "main.js.map": "./static/js/main.be5e9d16.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.7dcb2316.js",
+    "runtime-main.js.map": "./static/js/runtime-main.7dcb2316.js.map",
+    "static/css/2.6684f297.chunk.css": "./static/css/2.6684f297.chunk.css",
+    "static/js/2.9d79db23.chunk.js": "./static/js/2.9d79db23.chunk.js",
+    "static/js/2.9d79db23.chunk.js.map": "./static/js/2.9d79db23.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.e509e60ecf59831fc37336457983e492.js": "./precache-manifest.e509e60ecf59831fc37336457983e492.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.6684f297.chunk.css.map": "./static/css/2.6684f297.chunk.css.map",
+    "static/css/main.2c0f97ae.chunk.css.map": "./static/css/main.2c0f97ae.chunk.css.map",
+    "static/js/2.9d79db23.chunk.js.LICENSE": "./static/js/2.9d79db23.chunk.js.LICENSE",
+    "static/media/index.css": "./static/media/kisspng-avatar-user-medicine-surgery.39578caf.jpg",
+    "static/media/CallPage.module.css": "./static/media/png-clipart-customer-service-call-centre.png.7d22c625.gif",
+    "static/media/skayp-call.mp3": "./static/media/skayp-call.8a6a4544.mp3",
+    "static/media/toot.mp3": "./static/media/toot.1e3e7b81.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7dcb2316.js",
+    "static/css/2.6684f297.chunk.css",
+    "static/js/2.9d79db23.chunk.js",
+    "static/css/main.2c0f97ae.chunk.css",
+    "static/js/main.be5e9d16.chunk.js"
+  ]
+}
