@@ -3,7 +3,7 @@ import Timer from '../components/Timer.js';
 import useOnlineRoom from '../hooks/OnlineRoom.hook.js';
 import {Link} from 'react-router-dom';
 
-export const AdminPanel = () => {
+ const AdminPanel = () => {
    const isActive1 = useOnlineRoom(1).isActive;
 
    const isActive2 = useOnlineRoom(2).isActive;
@@ -95,3 +95,4 @@ export const AdminPanel = () => {
         </div>
     )
 }
+export default AdminPanel;

@@ -1,4 +1,4 @@
-body{
+.background_IMG{
     background-image:url(../src/img/background-image.jpg);
     background-repeat: repeat;
     background-size: 15em;
@@ -31,9 +31,22 @@ body{
 .blur {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(3px);
-    height: 101vh;
+    height: 100%;
     width: 100%;
 }
+.container .d-flex:nth-child(2) .news_img {
+    /* стили для первого img внутри div с классом d-flex */
+    height: 100%;
+    width: 80vh;
+  }
+
+.news_img {
+    height: 100%;
+    width: 30vh;
+}
+
+
+
 
 @media (max-width:768px) {
     .Home_Page{

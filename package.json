@@ -32,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongo-gridfs": "^1.1.0",
     "mongoose": "^5.8.1",
+    "multer": "^1.4.5-lts.1",
     "shortid": "^2.2.15",
     "socket.io": "^4.5.0",
     "socket.io-client": "^4.5.0",

@@ -173,3 +173,184 @@ a:hover,a:focus{
 @media only screen and (max-width: 479px){
  .tab{ padding: 40px 20px; }
 }
+
+
+.CoE-fading-circle {
+  margin: 40vh auto;
+  width: 30vh;
+  height: 30vh;
+  position: relative
+}
+@media (max-width:768px) {
+  .CoE-fading-circle {
+    width: 20vh;
+    height: 20vh;
+  }
+}
+
+.CoE-fading-circle .CoE-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0
+}
+
+.CoE-fading-circle .CoE-circle:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  height: 15%;
+  background-color: rgb(47, 11, 69);
+  border-radius: 100%;
+  -webkit-animation: CoE-circleFadeDelay 1.2s infinite ease-in-out both;
+  animation: CoE-circleFadeDelay 1.2s infinite ease-in-out both
+}
+
+.CoE-fading-circle .CoE-circle2 {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg)
+}
+
+.CoE-fading-circle .CoE-circle3 {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg)
+}
+
+.CoE-fading-circle .CoE-circle4 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+
+.CoE-fading-circle .CoE-circle5 {
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  transform: rotate(120deg)
+}
+
+.CoE-fading-circle .CoE-circle6 {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg)
+}
+
+.CoE-fading-circle .CoE-circle7 {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg)
+}
+
+.CoE-fading-circle .CoE-circle8 {
+  -webkit-transform: rotate(210deg);
+  -ms-transform: rotate(210deg);
+  transform: rotate(210deg)
+}
+
+.CoE-fading-circle .CoE-circle9 {
+  -webkit-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  transform: rotate(240deg)
+}
+
+.CoE-fading-circle .CoE-circle10 {
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg)
+}
+
+.CoE-fading-circle .CoE-circle11 {
+  -webkit-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  transform: rotate(300deg)
+}
+
+.CoE-fading-circle .CoE-circle12 {
+  -webkit-transform: rotate(330deg);
+  -ms-transform: rotate(330deg);
+  transform: rotate(330deg)
+}
+
+.CoE-fading-circle .CoE-circle2:before {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s
+}
+
+.CoE-fading-circle .CoE-circle3:before {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s
+}
+
+.CoE-fading-circle .CoE-circle4:before {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s
+}
+
+.CoE-fading-circle .CoE-circle5:before {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s
+}
+
+.CoE-fading-circle .CoE-circle6:before {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s
+}
+
+.CoE-fading-circle .CoE-circle7:before {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s
+}
+
+.CoE-fading-circle .CoE-circle8:before {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s
+}
+
+.CoE-fading-circle .CoE-circle9:before {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s
+}
+
+.CoE-fading-circle .CoE-circle10:before {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s
+}
+
+.CoE-fading-circle .CoE-circle11:before {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s
+}
+
+.CoE-fading-circle .CoE-circle12:before {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s
+}
+
+@-webkit-keyframes CoE-circleFadeDelay {
+
+  0%,
+  39%,
+  100% {
+      opacity: 0
+  }
+
+  40% {
+      opacity: 1
+  }
+}
+
+@keyframes CoE-circleFadeDelay {
+
+  0%,
+  39%,
+  100% {
+      opacity: 0
+  }
+
+  40% {
+      opacity: 1
+  }
+}

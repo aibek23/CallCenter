@@ -41,10 +41,10 @@ export const Header = (props) => {
     });
   }, [isAuthenticated]);
   return (
-    <div>
+    <div >
       <nav className="navbar navbar-expand-md navbar-dark  navbarbg">
-        <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/HomePage">главная</NavLink>
+        <div className="container-fluid container">
+        <NavLink className="navbar-brand" to="/HomePage">Главная</NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -52,17 +52,23 @@ export const Header = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               {data ? state.operator ?
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/CallPage">прием звонков</NavLink>
+                  <NavLink className="nav-link" to="/CallPage">Прием звонков</NavLink>
                 </li> :
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/CallPage">позвонить</NavLink>
+                  <NavLink className="nav-link" to="/CallPage">Позвонить</NavLink>
                 </li> : ''}
               {data?state.adm ? <NavLink className="nav-link" to="/AdminPanel">админ панель</NavLink> : "":""}
+              <NavLink className="nav-link" to="/NewsPage">Новасти</NavLink>
+              <NavLink className="nav-link" to="/SearchUser">Пользователи</NavLink>
+              <NavLink className="nav-link" to="/About_us">O нас</NavLink>
             </ul>
             <ul className='navbar-nav'>
+            {data?<li className="nav-item">
+                    <a className="nav-link" href="/User" >{data.usersurname}</a>
+                  </li>:
               <li className="nav-item">
-                <a className="nav-link" href="/AuthPage" onClick={logoutHandler}>{data?"выйти":"вход в аккаунт"}</a>
-              </li>
+                <a className="nav-link" href="/AuthPage" >вход в аккаунт</a>
+              </li>}
             </ul>
           </div>
         </div>

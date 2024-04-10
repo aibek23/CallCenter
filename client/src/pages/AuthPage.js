@@ -10,7 +10,7 @@ export const AuthPage = () => {
   const {loading, request, error, clearError} = useHttp()
   // const [errorMessage, useerrorMessage] = useState(" ")
   const [form, setForm] = useState({
-    username: '',surname: '',email: '', password: ''
+    username: '',surname: '',email: '', password: '',role: 'user',
   })
   const [formL, setFormL] = useState({
    email: '', password: ''

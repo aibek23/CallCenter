@@ -10,7 +10,7 @@ import useStopWatch  from "../hooks/StopWatch.hook";
 import Timer from "../components/Timer";
 import { useRandomString } from "../hooks/random.string.hook";
 const socket = openSocket.connect(`${process.env.REACT_APP_API_URL}`, { reconnection: false })
-export const CallPage = (props) => {
+const CallPage = (props) => {
 const {handleStart,handlePauseResume,time} = useStopWatch(0);
   
   const data = JSON.parse(localStorage.getItem('userData'));
@@ -88,7 +88,32 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-
+    const stopMediaDevices = () => {
+      if (stream) {
+        stream.getTracks().forEach((track) => {
+          track.stop();
+        });
+      }
+      if (screenStream) {
+        screenStream.getTracks().forEach((track) => {
+          track.stop();
+        });
+      }
+      if (voiceStream) {
+        voiceStream.getTracks().forEach((track) => {
+          track.stop();
+        });
+      }
+    };
+    
+    return () => {
+      stopMediaDevices();
+      socket.off('update');
+      socket.off('connect_error');
+      socket.off('disconnect');
+      socket.off('callEndeMessage');
+      socket.off('callUser');
+    };
   }, [props.props, email]);
 
   useEffect(() => {
@@ -281,6 +306,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
       }
     }, [modal]);
   return (
+    <div className="background_IMG">
     <div className="container" onClick={()=>callBtnFunc()}>
             <ToastContainer
               position="top-right"
@@ -368,7 +394,8 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
       <div className="text-end text-danger">
       <Timer props={time}/>
       </div>
-   
+      </div>
     </div>
   )
 }
+export default CallPage;

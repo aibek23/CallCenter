@@ -67,7 +67,22 @@ const useOnlineRoom = (initialState) => {
       fetchLinks();
     }
   }, [fetchLinks, initialState]);
+  useEffect(() => {
+    let isCancelled = false;
 
+    const handleOnlineRoom = (data) => {
+      if (!isCancelled) {
+        setOnline_room(data);
+      }
+    };
+
+    socket.on('online_room', handleOnlineRoom);
+
+    return () => {
+      isCancelled = true;
+      socket.off('online_room', handleOnlineRoom);
+    };
+  }, []);
   return {
     isActive,
     time,

@@ -54,8 +54,12 @@ app.use(express.json({ extended: true }))
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/time', require('./routes/time.routes'))
 app.use('/api/video', require('./routes/video.sream.routes'))
+app.use('/api/upload', require('./routes/upload.routes'));
+app.use('/api/user', require('./routes/user.routes'));
+app.use('/api/news', require('./routes/news.routes'));
 // app.use('/api/videoSearch', require('./routes/video.search.routes.js'))
 app.use('/static', express.static(path.join(__dirname, 'video')))
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 if(process.env.NODE_ENV === 'production'){
 	app.use('/',express.static(path.join(__dirname,'client','build')))
 	app.get('*',(req,res)=>{

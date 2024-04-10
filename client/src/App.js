@@ -6,6 +6,7 @@ import {Context} from './context/Context'
 import {Loader} from './components/Loader'
 import 'bootstrap/dist/css/bootstrap.min.css' ;
 import "./index.css";
+import "./style.css";
 
 function App() {
   const {token, login, logout, userId, ready, userEmail} = useAuth()
