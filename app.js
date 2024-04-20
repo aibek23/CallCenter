@@ -26,6 +26,7 @@ const saveData = async (data, username) => {
 	const tempFilePath = `${dirPath}/${fileName}`;
 	const finalFilePath = `${dirPath}/${fileName}`;
 
+	
 	await mkdir(dirPath, { recursive: true });
 	try {
 		const videoBlob = new Blob(data, {
@@ -57,7 +58,7 @@ app.use('/api/video', require('./routes/video.sream.routes'))
 app.use('/api/upload', require('./routes/upload.routes'));
 app.use('/api/user', require('./routes/user.routes'));
 app.use('/api/news', require('./routes/news.routes'));
-// app.use('/api/videoSearch', require('./routes/video.search.routes.js'))
+app.use('/api/rating', require('./routes/rating.routes'));
 app.use('/static', express.static(path.join(__dirname, 'video')))
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 if(process.env.NODE_ENV === 'production'){

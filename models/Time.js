@@ -1,5 +1,5 @@
 const {Schema, model, Types} = require('mongoose')
- 
+
 const Times = new Schema({
   date: {type: Date, default: Date.now},
   videoName:{type: String, required: true},

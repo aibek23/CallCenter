@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import RatingCallCenter from "../components/form/RatingCallCenter";
 import ringtony from "../audeo/skayp-call.mp3"
 import toot from "../audeo/toot.mp3"
 import styles from "../css/CallPage.module.css";
@@ -22,7 +23,6 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
   const [stream, setStream] = useState();
   const [call, setCall] = useState({});
   const [online_room, setOnline_room] = useState([]);
-  const [busy__room, setBusy__room] = useState(true);
   const [operatorId, setOperatorId] = useState();
 
   const myVideo = useRef();
@@ -33,7 +33,6 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
   const [screenStream, setScreenStream] = useState(null);
   const [voiceStream, setVoiceStream] = useState(null);
   const [recording, setRecording] = useState(false);
-  // const [loading, setLoading] = useState(true);
   let mediaRecorder = null;
   let dataChunks = [];
   let room;
@@ -73,8 +72,12 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
         setCall({ isReceivingCall: true, from, name: callerName, signal, surname });
       });
     } else {
+      socket.on('answerCall', ({ from, name: callerName, signal, surname }) => {
+        console.log("answer");
+        setCall({ isReceivingCall: true, from, name: callerName, signal, surname });
+      });
+      
       socket.emit('createRoom', email);
-      socket.on('busy__room', (data) => { setBusy__room(data); });
       socket.on('online_room', (data) => { setOnline_room(data); });
       getMediaDevices();
     }
@@ -84,9 +87,21 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
       setTimeout(() => { window.location.reload(); }, 500);
     });
     socket.on('disconnect', () => { window.location.reload(); });
-    socket.on('callEndeMessage', (e) => { window.location.reload(); console.log(e);});
-    socket.on('callUser', ({ from, name: callerName, signal }) => {
-      setCall({ isReceivingCall: true, from, name: callerName, signal });
+    socket.on('callEndeMessage', (e) => {  
+      toast.error(`связь прервана callEndeMessage`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+        setTimeout(() => { window.location.reload(); }, 1000);
+    });
+    socket.on('callUser', ({ from, name: callerName, signal, surname }) => {
+      console.log("operator");
+      setCall({ isReceivingCall: true, from, name: callerName, signal, surname });
     });
     const stopMediaDevices = () => {
       if (stream) {
@@ -122,7 +137,6 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
       let id = online_room[rand]
       setOperatorId(id.operator)
       console.log(online_room);
-      setBusy__room(false);
     }
   },[online_room]);
 
@@ -215,6 +229,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
     });
     socket.on('callAccepted', (signal) => {
       setCallAccepted(true);
+      console.log(signal);
       peer.signal(signal);
     });
     connectionRef.current = peer;
@@ -235,18 +250,17 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
       draggable: true,
       progress: undefined,
       });
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+
    }
     return false;
   }
-
   const leaveCall = () => {
     window.scrollTo(0,document.documentElement.scrollHeight)
     stopRecording();
+    console.log(call.from);
     socket.emit('callEnde', call.from);
-    connectionRef.current.destroy();
+    connectionRef.current.destroy();    
+    setCallEnded(true);
     setTimeout(() => {
       window.location.reload();
     }, 500);
@@ -307,6 +321,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
     }, [modal]);
   return (
     <div className="background_IMG">
+      { props.props?"":<RatingCallCenter/>}
     <div className="container" onClick={()=>callBtnFunc()}>
             <ToastContainer
               position="top-right"
