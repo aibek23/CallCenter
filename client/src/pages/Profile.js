@@ -66,12 +66,15 @@ const Profile = () => {
   const logoutHandler = event => {
     event.preventDefault()
     auth.logout()
+    window.location.reload()
   }
 
   const handleImageError = (e) => {
     e.target.src = Platzhalter;
   };
-  console.log(newsData);
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   return (
     <div className="container">
       <div className="row mt-5">
@@ -102,21 +105,35 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-center">
-              <span>{dataUser.username}</span>
+          <div className="mt-4 text-center">
+            <div className="text-">
+              <span className="btn"  >
+                {capitalizeFirstLetter(dataUser.usersurname)} {capitalizeFirstLetter(dataUser.username)}</span>
             </div>
-          </div>
-          <div className="btn red">
-            <a href="/" onClick={(e) => logoutHandler(e)}>
+            <div className="mt-2">
+            {/* <a href="/" onClick={(e) => logoutHandler(e)}>
               Выйти
-            </a>
+            </a> */}
+            <button type="button" onClick={(e) => logoutHandler(e)} className="btn btn-danger">Выйти</button>
           </div>
+          </div>
+
         </div>
         <div className="col-md-8">
+
           {addBtn ? (<>
+            <p
+                className="mb-2"
+                style={{
+                  color: "rgb(17, 17, 17)",
+                  fontWeight: 900,
+                }}
+              >
+                Редактор профиля 
+              </p>
+              <div className=" border  rounded-lg bg-light p-3">
             <a className="" onClick={() => setAddBtn(!addBtn)}><IoMdCloseCircle style={{ fontSize: "3rem" }} color="red"></IoMdCloseCircle></a>
-            <AddProfile path="/api/upload" _id={dataUser.userId} update={fetchData} setId={setCardId} /></>
+            <AddProfile path="/api/upload" _id={dataUser.userId} update={fetchData} setId={setCardId} /></div></>
           ) : (
             <div>
               <h5>
@@ -136,10 +153,19 @@ const Profile = () => {
 
           )}
 
-          {addBtnNews ? (<div className=" border  rounded-lg bg-light p-3">
+          {addBtnNews ? ( <><p
+                className="mb-2 mt-2"
+                style={{
+                  color: "rgb(17, 17, 17)",
+                  fontWeight: 900,
+                }}
+              >
+                Редактор новостей 
+              </p><div className=" border  rounded-lg bg-light p-3">
+       
             <a className="" onClick={() => setAddBtnNews(!addBtnNews)}><IoMdCloseCircle style={{ fontSize: "3rem" }} color="red"></IoMdCloseCircle></a>
             <AddNews path="/api/upload" _id={dataUser.userId} update={fetchData} setId={setCardId} /></div>
-          ) : (
+            </>) : (
             <div>     <div className="container pt-5">
 
               {/* Отображаем результаты поиска или все данные */}

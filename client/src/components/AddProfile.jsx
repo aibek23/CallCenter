@@ -310,7 +310,7 @@ import React, {
               <Draft onTextChange={handleTextChange}/>
             </div>
   
-            <div className="col-lg-7 mt-5">
+            <div className="col-lg-7 mt-4 mb-4">
               <button
                 className="btn btn-success"
                 onClick={() => createHandler()}

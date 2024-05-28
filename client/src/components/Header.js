@@ -57,8 +57,8 @@ export const Header = (props) => {
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/CallPage">Позвонить</NavLink>
                 </li> : ''}
-              {data?state.adm ? <NavLink className="nav-link" to="/AdminPanel">админ панель</NavLink> : "":""}
-              <NavLink className="nav-link" to="/NewsPage">Новасти</NavLink>
+              {/* {data?state.adm ? <NavLink className="nav-link" to="/AdminPanel">админ панель</NavLink> : "":""} */}
+              <NavLink className="nav-link" to="/NewsPage">Новости</NavLink>
               <NavLink className="nav-link" to="/SearchUser">Пользователи</NavLink>
               <NavLink className="nav-link" to="/About_us">O нас</NavLink>
             </ul>

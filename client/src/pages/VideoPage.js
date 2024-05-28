@@ -42,7 +42,7 @@ export const VideoPage = () => {
 
   useEffect(() => {
     setFilteredVideoPath(
-      videoPath.filter((link) => link.callFrom && link.callFrom.toLowerCase().includes(form.toLowerCase()))
+      videoPath.filter((link) => link.time.callFrom && link.time.callFrom.toLowerCase().includes(form.toLowerCase()))
     );
   }, [form, videoPath]);
 

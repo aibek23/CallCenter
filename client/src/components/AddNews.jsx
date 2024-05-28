@@ -266,6 +266,7 @@ import { disconnect } from "mongoose";
 
     return (
       <>
+           
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -279,7 +280,7 @@ import { disconnect } from "mongoose";
         />
   
 
- 
+  
             {file && <ImageThumb image={file} />}
             <div className="form-group  ">
               <label
@@ -289,7 +290,7 @@ import { disconnect } from "mongoose";
                   fontWeight: 700,
                 }}
               >
-                Загрузите изображение
+                Загрузите изображение для заголовки 
               </label>
               <input
                 onChange={imghandleUpload}

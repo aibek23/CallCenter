@@ -74,7 +74,7 @@ const RatingCallCenter = () => {
       <div className="container d-flex justify-content-center mt-5">
         <div className=" text-center">
           <div className="bg-success text-white rounded">
-            <h6 className="mb-0 pt-5">
+            <h6 className="mb-0 pt-5 P-3">
               Насколько понятным и доступным был общий уровень коммуникации с
               переводчиком?
             </h6>

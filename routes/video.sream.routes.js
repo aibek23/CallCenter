@@ -3,6 +3,7 @@ const config = require('config')
 const shortid = require('shortid')
 const Time = require('../models/Time')
 const User = require('../models/User')
+const Comments = require('../models/Comments')
 const auth = require('../middleware/auth.middleware')
 const router = Router();
 
@@ -18,8 +19,18 @@ async (req, res) => {
       {operatorId = "63de98a1ccd1692dea7487fc"}else if(req.params.id == "5")
       {operatorId = "63de98caccd1692dea7487fd"}
       const Times = await Time.find({"user":`${operatorId}`});
-      res.json(Times);// all time
-
+      const comments = [];
+      for (const time of Times) {
+        // Поиск комментариев для текущего объекта `Time`
+        const timeComments = await Comments.find({"Time_id": time._id});
+        
+        // Добавление комментариев к массиву `comments`
+        comments.push({
+          time: time,
+          comments: timeComments,
+        });
+      }
+            res.json(comments);// all time
       } catch (e) {
         res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова'+e})
       }

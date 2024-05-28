@@ -75,7 +75,7 @@ const NewsPage = () => {
                             border: 'solid 5px #DEE2E6',
                             borderRadius: '1rem 0 0 1rem',
                         }}
-                        placeholder="Search"
+                        placeholder="Поиск новостей "
                     />
                     <span
                         className="input-group-text border"

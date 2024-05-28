@@ -94,7 +94,7 @@ const SearchUser = () => {
         />
 
         <div className="input-group rounded mt-5">
-          <input type="search" className="form-control " onChange={(e) => searchItems(e.target.value)} style={{ "border": "solid 5px #DEE2E6", "borderRadius": "1rem  0px  0px 1rem" }} placeholder="Search" />
+          <input type="search" className="form-control " onChange={(e) => searchItems(e.target.value)} style={{ "border": "solid 5px #DEE2E6", "borderRadius": "1rem  0px  0px 1rem" }} placeholder="Поиск" />
           <span className="input-group-text border" style={{ "border": "solid 10px #DEE2E6", "borderRadius": "  0  1rem   1rem 0" }} id="search-addon">
             <i className="fas fa-search" ></i>
           </span>
