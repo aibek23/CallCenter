@@ -84,9 +84,28 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
     socket.on('update', data => console.log(data));
     socket.on('connect_error', err => {
       console.log(err);
-      setTimeout(() => { window.location.reload(); }, 500);
+      toast.error(`connect_error №${err.message}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     });
-    socket.on('disconnect', () => { window.location.reload(); });
+    socket.on('disconnect', () => {
+      toast.error(`disconnect`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+      
+     });
     socket.on('callEndeMessage', (e) => {  
       toast.error(`связь прервана callEndeMessage`, {
         position: "top-right",
@@ -97,7 +116,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
         draggable: true,
         progress: undefined,
         });
-        setTimeout(() => { window.location.reload(); }, 1000);
+        setTimeout(() => { window.location.reload(); }, 1200);
     });
     socket.on('callUser', ({ from, name: callerName, signal, surname }) => {
       console.log("operator");
@@ -206,7 +225,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
         connectionRef.current.destroy();
         setTimeout(() => {
           window.location.reload();
-        }, 500);
+        }, 5000);
       }
       })
     peer.signal(call.signal);
@@ -263,7 +282,7 @@ const {handleStart,handlePauseResume,time} = useStopWatch(0);
     setCallEnded(true);
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 1000);
   };
 
   useEffect(() => {
